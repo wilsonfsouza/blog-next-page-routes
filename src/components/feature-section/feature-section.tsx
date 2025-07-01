@@ -6,7 +6,7 @@ import { Button } from '../ui/button'
 export const FeatureSection = () => {
   return (
     <section className="container grid gap-3 bg-gray-700 py-10 md:grid-cols-2 md:gap-6 md:pb-[7.5rem] md:pt-20 lg:gap-6 lg:pb-[7.5rem] lg:pt-20">
-      <div className="flex flex-col gap-4 rounded-lg bg-gray-500 p-6 md:p-12 lg:p-12">
+      <div className="flex flex-col gap-4 rounded-xl bg-gray-500 p-6 md:p-12 lg:p-12">
         <span className="text-body-tag w-fit rounded-sm bg-blue-400 px-3 py-[0.375rem] uppercase text-blue-200">
           Easy
         </span>
@@ -14,7 +14,7 @@ export const FeatureSection = () => {
           Create a catalog of products online in a few minutes
         </h2>
       </div>
-      <div className="flex flex-col gap-4 rounded-lg bg-gray-500 p-6 md:p-12 lg:p-12">
+      <div className="flex flex-col gap-4 rounded-xl bg-gray-500 p-6 md:p-12 lg:p-12">
         <span className="text-body-tag w-fit rounded-sm bg-blue-400 px-3 py-[0.375rem] uppercase text-blue-200">
           Practical
         </span>
@@ -24,7 +24,7 @@ export const FeatureSection = () => {
       </div>
 
       <div className="col-span-full flex flex-col">
-        <div className="grid grid-cols-1 gap-12 rounded-lg bg-gray-500 p-6 md:grid-cols-2 md:p-12 lg:p-12">
+        <div className="grid grid-cols-1 gap-12 rounded-xl bg-gray-500 p-6 md:grid-cols-2 md:p-12 lg:p-12">
           <div className="flex flex-col gap-4">
             <span className="text-body-tag w-fit rounded-sm bg-blue-400 px-3 py-[0.375rem] uppercase text-blue-200">
               Customizable
