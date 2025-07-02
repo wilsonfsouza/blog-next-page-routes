@@ -8,7 +8,7 @@ export const HeroSection = () => {
     <section className="container relative mt-24 flex items-center justify-center md:mt-16 lg:mt-16">
       <div className="grid min-h-[20rem] grid-cols-1 items-center gap-8 md:h-[36rem] md:grid-cols-2">
         <div className="flex flex-col items-center justify-center gap-6 md:items-start md:gap-8 lg:items-start lg:gap-8">
-          <h1 className="text-heading-hg text-center text-gray-100 md:text-left lg:text-left">
+          <h1 className="text-center font-sans text-heading-hg text-gray-100 md:text-left lg:text-left">
             Sell your products as an affiliate in only one place
           </h1>
 

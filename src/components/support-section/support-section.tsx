@@ -1,17 +1,9 @@
 import { HeartHandshake, Paintbrush, Store } from 'lucide-react'
-import { PT_Sans_Caption } from 'next/font/google'
-
-const ptSansCaption = PT_Sans_Caption({
-  subsets: ['latin'],
-  weight: '700',
-})
 
 export const SupportSection = () => {
   return (
     <section className="container py-12 md:py-[7.5rem]">
-      <h2
-        className={`${ptSansCaption.className} mb-8 text-balance text-center text-heading-md text-gray-100 md:mb-12 md:text-heading-xl`}
-      >
+      <h2 className="mb-8 text-balance text-center font-sans text-heading-md text-gray-100 md:mb-12 md:text-heading-xl">
         Your affiliates store, simple, as it should be
       </h2>
       <div className="grid gap-4 md:grid-cols-3 md:gap-6">
