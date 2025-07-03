@@ -33,10 +33,7 @@ export const FeatureSection = () => {
               Get a customizable online store that looks like your brand
             </h2>
 
-            <Button
-              asChild
-              className="mt-auto hidden w-fit rounded-full text-white md:flex"
-            >
+            <Button asChild className="mt-auto hidden w-fit md:flex">
               <Link href="/create-store">
                 Create free store
                 <ArrowRight />
@@ -54,10 +51,7 @@ export const FeatureSection = () => {
                 className="w-full object-contain"
               />
             </div>
-            <Button
-              asChild
-              className="mt-8 w-full gap-2 rounded-full md:hidden"
-            >
+            <Button asChild className="mt-8 w-full md:hidden">
               <Link href="/create-store">
                 Create free store
                 <ArrowRight />

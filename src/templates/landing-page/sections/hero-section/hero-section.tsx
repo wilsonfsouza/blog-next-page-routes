@@ -30,7 +30,7 @@ export const HeroSection = () => {
             </div>
 
             <div className="flex flex-col items-center gap-4 text-white">
-              <Button className="w-fit rounded-full" asChild>
+              <Button className="w-fit" asChild>
                 <Link href="/create-store">
                   Create free store
                   <ArrowRight />

@@ -13,7 +13,7 @@ export const Header = () => {
           <nav className="flex items-center gap-6">
             <ActiveLink href="/">Home</ActiveLink>
             <ActiveLink href="/blog">Blog</ActiveLink>
-            <Button variant="secondary" asChild>
+            <Button size="md" variant="secondary" asChild>
               <Link href="/contact-us">Contact Us</Link>
             </Button>
           </nav>

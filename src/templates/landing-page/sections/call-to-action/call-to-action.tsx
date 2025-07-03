@@ -15,7 +15,7 @@ export const CallToAction = () => {
             Create an online store and start selling today
           </h2>
 
-          <Button variant="primary" className="w-fit rounded-full" asChild>
+          <Button className="w-fit" asChild>
             <Link href="/create-store">
               Create free store
               <ArrowRight />
