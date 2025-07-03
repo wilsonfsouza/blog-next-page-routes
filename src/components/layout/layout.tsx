@@ -26,7 +26,7 @@ export const Layout = ({ children }: LayoutProps) => {
       className={`${inter.className} ${ptSansCaption.className} relative flex min-h-screen flex-col bg-gray-700 font-inter`}
     >
       <Header />
-      <main className="mb-12 mt-10 flex flex-1 flex-col">{children}</main>
+      <main className="mt-10 flex flex-1 flex-col">{children}</main>
       <Footer />
     </div>
   )
