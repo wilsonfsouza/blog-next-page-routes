@@ -1,4 +1,5 @@
 import { Search } from '@/components/search'
+import { allPosts } from 'contentlayer/generated'
 import { useRouter } from 'next/router'
 import { BlogPostCard } from './components/post-card'
 import { BlogPostGridCard } from './components/post-grid-card'
@@ -10,6 +11,7 @@ export function BlogList() {
   const DEFAULT_PAGE_TITLE = 'Tips and strategies to boost your business'
   const pageTitle = query ? `Search results for "${query}"` : DEFAULT_PAGE_TITLE
 
+  const posts = allPosts
   return (
     <div className="flex flex-col gap-6 px-4 py-5 md:gap-14 md:px-0 md:py-20">
       <header>
@@ -28,23 +30,20 @@ export function BlogList() {
       </header>
 
       <BlogPostGridCard>
-        <BlogPostCard
-          title="Transformando seu negócio em uma loja virtual"
-          description="Se você está buscando uma maneira simples e eficaz de vender seus produtos online..."
-          date="20/12/2024"
-          slug="transforming-business-into-online-store"
-          image={{
-            src: '/assets/transforming-business-into-online-store.png',
-            alt: 'Photo of a business man using his macbook to create his online store',
-          }}
-          author={{
-            avatar: {
-              src: '/reviews/customer-01.png',
-              alt: 'Picture of Aspen Dokidis',
-            },
-            name: 'Aspen Dokidis',
-          }}
-        />
+        {posts.map((post) => (
+          <BlogPostCard
+            key={post._id}
+            title={post.title}
+            description={post.description}
+            date={new Date(post.date).toLocaleDateString('en-US')}
+            slug={post.slug}
+            image={post.image}
+            author={{
+              avatar: post.author.avatar,
+              name: post.author.name,
+            }}
+          />
+        ))}
       </BlogPostGridCard>
     </div>
   )
