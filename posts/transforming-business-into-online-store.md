@@ -8,7 +8,7 @@ image:
 author:
   name: Aspen Dokidis
   avatar:
-    src: /reviews/customer-01.png
+    src: /assets/authors/aspen-dokidis.png
     alt: Picture of Aspen Dokidis
 ---
 
