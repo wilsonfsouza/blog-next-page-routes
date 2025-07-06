@@ -20,7 +20,7 @@ export function BlogList() {
 
   const hasPosts = posts.length > 0
   return (
-    <div className="flex flex-col gap-6 px-4 py-5 md:gap-14 md:px-0 md:py-20">
+    <article className="flex flex-col gap-6 px-4 py-5 md:gap-14 md:px-0 md:py-20">
       <header>
         <div className="container flex flex-col items-start justify-between space-y-6 md:flex-row md:items-end">
           <div className="flex max-w-[27.5rem] flex-col items-start gap-3">
@@ -66,6 +66,6 @@ export function BlogList() {
           </div>
         </div>
       )}
-    </div>
+    </article>
   )
 }
