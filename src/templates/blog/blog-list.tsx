@@ -13,8 +13,8 @@ export function BlogList() {
   const pageTitle = query ? `Search results for "${query}"` : DEFAULT_PAGE_TITLE
 
   const posts = query
-    ? allPosts.filter((post) =>
-        post.title.toLowerCase()?.includes(query.toLowerCase())
+    ? allPosts.filter(
+        (post) => post.title.toLowerCase() === query.toLowerCase()
       )
     : allPosts
 
