@@ -6,7 +6,7 @@ import Link from 'next/link'
 export const HeroSection = () => {
   return (
     <section className="container relative flex items-center justify-center">
-      <div className="grid min-h-[20rem] grid-cols-1 items-center gap-8 md:h-[36rem] md:grid-cols-2">
+      <div className="grid min-h-[20rem] grid-cols-1 items-center gap-8 pb-10 pt-8 md:h-[36rem] md:grid-cols-2 md:py-0">
         <div className="flex flex-col items-center justify-center gap-6 md:items-start md:gap-8 lg:items-start lg:gap-8">
           <h1 className="text-center font-sans text-heading-hg text-gray-100 md:text-left lg:text-left">
             Sell your products as an affiliate in only one place
