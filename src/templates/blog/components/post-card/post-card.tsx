@@ -1,3 +1,4 @@
+import { Avatar } from '@/components/avatar'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -31,9 +32,9 @@ export const BlogPostCard = ({
   return (
     <Link
       href={`/blog/${slug}`}
-      className="w-full max-w-2xl overflow-hidden rounded-xl border border-gray-400 bg-gray-600 transition-all duration-300 hover:border-blue-300"
+      className="flex w-full max-w-2xl overflow-hidden rounded-xl border border-gray-400 bg-gray-600 transition-all duration-300 hover:border-blue-300"
     >
-      <div className="overflow-hidden rounded-md p-2">
+      <div className="flex flex-col overflow-hidden rounded-md p-2">
         <div className="relative">
           <div className="background-blur-sm absolute right-0 top-0 rounded-bl-[0.625rem] bg-gray-600 pb-[0.375rem] pl-[0.625rem] pr-[0.375rem] pt-[0.125rem]">
             <span className="text-body-xs text-gray-300">{date}</span>
@@ -47,25 +48,26 @@ export const BlogPostCard = ({
           />
         </div>
 
-        <div className="p-2">
-          <h2 className="line-clamp-3 text-balance pb-2 text-heading-xs text-gray-100">
-            {title}
-          </h2>
+        <div className="p-2 md:flex md:flex-1 md:flex-col">
+          <div>
+            <h2 className="line-clamp-3 text-balance pb-2 text-heading-xs text-gray-100">
+              {title}
+            </h2>
 
-          <p className="line-clamp-3 text-balance text-body-xs text-gray-300">
-            {description}
-          </p>
+            <p className="line-clamp-3 text-balance pb-3 text-body-xs text-gray-300">
+              {description}
+            </p>
+          </div>
 
-          <div className="mt-3 flex items-center gap-2 overflow-hidden border-t border-gray-400 pt-3">
-            <div className="relative h-5 w-5 rounded-full border border-blue-200">
-              <Image
+          <div className="mt-auto flex items-center overflow-hidden border-t border-gray-400 pt-3">
+            <Avatar.Container>
+              <Avatar.Image
                 src={author?.avatar?.src}
                 alt={author?.avatar?.alt}
-                fill
-                className="rounded-full object-cover"
+                size="xs"
               />
-            </div>
-            <span className="text-body-xs text-gray-300">{author?.name}</span>
+              <Avatar.Description>{author?.name}</Avatar.Description>
+            </Avatar.Container>
           </div>
         </div>
       </div>

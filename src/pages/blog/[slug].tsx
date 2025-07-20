@@ -67,7 +67,7 @@ export default function BlogPostPage() {
                   <Avatar.Image
                     src={post?.author.avatar.src}
                     alt={post?.author.avatar.alt}
-                    size="md"
+                    size="sm"
                   />
                   <Avatar.Content>
                     <Avatar.Title>{post?.author.name}</Avatar.Title>

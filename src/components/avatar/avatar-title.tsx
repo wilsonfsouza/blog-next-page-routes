@@ -3,7 +3,5 @@ interface AvatarTitleProps {
 }
 
 export const AvatarTitle = ({ children }: AvatarTitleProps) => {
-  return <span className="text-body-sm text-gray-300">{children}</span>
+  return <span className="text-body-sm text-gray-200">{children}</span>
 }
-
-// continue at -10:02
