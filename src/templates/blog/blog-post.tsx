@@ -96,9 +96,11 @@ export function BlogPost() {
           </article>
           <aside>
             <div className="space-y-5 bg-gray-700">
-              <h2 className="text-heading-xs text-gray-100">Share</h2>
+              <h2 className="hidden text-heading-xs text-gray-100 lg:block">
+                Share
+              </h2>
 
-              <div className="flex gap-2 lg:flex-col">
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:flex md:flex-wrap md:justify-end lg:justify-start">
                 {shareButtons.map((provider) => (
                   <Button
                     key={provider.provider}

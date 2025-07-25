@@ -1,4 +1,4 @@
-import { Link } from 'lucide-react'
+import { Check, Link } from 'lucide-react'
 import { useCallback, useMemo } from 'react'
 import { useCopyToClipboard } from '../use-copy-to-clipboard'
 import {
@@ -69,11 +69,15 @@ export const useShareToSocials = ({
       {
         provider: 'clipboard',
         name: hasCopied ? 'Copied Link!' : 'Copy Link',
-        icon: <Link className="h-4 w-4" />,
+        icon: hasCopied ? (
+          <Check className="h-4 w-4" />
+        ) : (
+          <Link className="h-4 w-4" />
+        ),
         action: () => handleShare('clipboard'),
       },
     ],
-    [handleShare]
+    [handleShare, hasCopied]
   )
 
   return {
