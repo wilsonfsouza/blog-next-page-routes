@@ -107,7 +107,9 @@ export default function BlogPostPage() {
                     onClick={() => provider.action()}
                   >
                     {provider.icon}
-                    {provider.name}
+                    <span className="hidden lg:inline-block">
+                      {provider.name}
+                    </span>
                   </Button>
                 ))}
               </div>
