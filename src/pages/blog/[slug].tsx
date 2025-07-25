@@ -7,6 +7,8 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
+import { Button } from '@/components/ui/button'
+import { useShareToSocials } from '@/hooks'
 import { allPosts } from 'contentlayer/generated'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -24,6 +26,13 @@ export default function BlogPostPage() {
   // }
 
   const publisedDate = new Date(post?.date).toLocaleDateString('en-US')
+  const postUrl = `http://localhost:300/blog/${slug}`
+
+  const { shareButtons } = useShareToSocials({
+    url: postUrl,
+    title: post?.title,
+    text: post?.description,
+  })
 
   return (
     <section className="text-gray-100">
@@ -85,6 +94,25 @@ export default function BlogPostPage() {
               </div>
             )}
           </article>
+          <aside>
+            <div className="space-y-5 bg-gray-700">
+              <h2 className="text-heading-xs text-gray-100">Share</h2>
+
+              <div className="flex gap-2 lg:flex-col">
+                {shareButtons.map((provider) => (
+                  <Button
+                    key={provider.provider}
+                    variant="outline"
+                    className="lg:w-full lg:justify-start lg:gap-2"
+                    onClick={() => provider.action()}
+                  >
+                    {provider.icon}
+                    {provider.name}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
