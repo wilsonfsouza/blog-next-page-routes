@@ -9,29 +9,22 @@ import {
 } from '@/components/ui/breadcrumb'
 import { Button } from '@/components/ui/button'
 import { useShareToSocials } from '@/hooks'
-import { allPosts } from 'contentlayer/generated'
+import { Post } from 'contentlayer/generated'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 
-export function BlogPost() {
-  const router = useRouter()
-  const slug = router.query.slug as string
-  const post = allPosts.find((post) =>
-    post.slug.toLowerCase().includes(slug?.toLowerCase())
-  )
+export type BlogPostProps = {
+  post: Post
+}
 
-  // if (!post?._id) {
-  //   return router.replace('/blog')
-  // }
-
-  const publisedDate = new Date(post?.date).toLocaleDateString('en-US')
-  const postUrl = `http://localhost:300/blog/${slug}`
+export function BlogPost({ post }: BlogPostProps) {
+  const publisedDate = new Date(post.date).toLocaleDateString('en-US')
+  const postUrl = `http://localhost:300/blog/${post.slug}`
 
   const { shareButtons } = useShareToSocials({
     url: postUrl,
-    title: post?.title,
-    text: post?.description,
+    title: post.title,
+    text: post.description,
   })
 
   return (
@@ -55,44 +48,38 @@ export function BlogPost() {
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_14rem] lg:gap-6">
           <article className="overflow-hidden rounded-xl border border-gray-400 bg-gray-600">
-            {post?.image && (
-              <figure className="relative aspect-[16/10] w-full overflow-hidden">
-                <Image
-                  src={post.image.src}
-                  alt={post.image.alt}
-                  fill
-                  className="object-cover"
-                />
-              </figure>
-            )}
+            <figure className="relative aspect-[16/10] w-full overflow-hidden">
+              <Image
+                src={post.image.src}
+                alt={post.image.alt}
+                fill
+                className="object-cover"
+              />
+            </figure>
 
             <header className="px-6 py-8 lg:px-16 lg:py-12">
               <h1 className="mb-6 text-left text-heading-md text-gray-100 lg:mb-8 lg:text-heading-xl">
                 {post?.title}
               </h1>
 
-              {post?.author.avatar && (
-                <Avatar.Container>
-                  <Avatar.Image
-                    src={post?.author.avatar.src}
-                    alt={post?.author.avatar.alt}
-                    size="sm"
-                  />
-                  <Avatar.Content>
-                    <Avatar.Title>{post?.author.name}</Avatar.Title>
-                    <Avatar.Description>
-                      Published on{' '}
-                      <time dateTime={post.date}>{publisedDate}</time>
-                    </Avatar.Description>
-                  </Avatar.Content>
-                </Avatar.Container>
-              )}
+              <Avatar.Container>
+                <Avatar.Image
+                  src={post.author.avatar.src}
+                  alt={post.author.avatar.alt}
+                  size="sm"
+                />
+                <Avatar.Content>
+                  <Avatar.Title>{post.author.name}</Avatar.Title>
+                  <Avatar.Description>
+                    Published on{' '}
+                    <time dateTime={post.date}>{publisedDate}</time>
+                  </Avatar.Description>
+                </Avatar.Content>
+              </Avatar.Container>
             </header>
-            {post?.body.raw && (
-              <div className="prose prose-invert max-w-none px-6 lg:px-16">
-                <Markdown content={post?.body.raw} />
-              </div>
-            )}
+            <div className="prose prose-invert max-w-none px-6 lg:px-16">
+              <Markdown content={post.body.raw} />
+            </div>
           </article>
           <aside>
             <div className="space-y-5 bg-gray-700">
