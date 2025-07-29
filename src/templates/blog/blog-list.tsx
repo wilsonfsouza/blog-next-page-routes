@@ -1,7 +1,8 @@
+'use client'
 import { Search } from '@/components/search'
 import { Post } from 'contentlayer/generated'
 import { Inbox } from 'lucide-react'
-import { useRouter } from 'next/router'
+import { useSearchParams } from 'next/navigation'
 import { BlogPostCard } from './components/post-card'
 import { BlogPostGridCard } from './components/post-grid-card'
 
@@ -10,14 +11,16 @@ export type BlogListProps = {
 }
 
 export function BlogList({ posts }: BlogListProps) {
-  const router = useRouter()
-  const query = router.query.q as string
+  const searchParams = useSearchParams()
+  const query = searchParams?.get('q') ?? ''
 
   const DEFAULT_PAGE_TITLE = 'Tips and strategies to boost your business'
   const pageTitle = query ? `Search results for "${query}"` : DEFAULT_PAGE_TITLE
 
   const postsList = query
-    ? posts.filter((post) => post.title.toLowerCase() === query.toLowerCase())
+    ? posts.filter((post) =>
+        post.title.toLowerCase().includes(query.toLowerCase())
+      )
     : posts
 
   const hasPosts = postsList.length > 0
