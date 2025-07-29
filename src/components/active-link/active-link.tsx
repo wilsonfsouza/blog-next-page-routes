@@ -14,7 +14,7 @@ export const ActiveLink = ({ children, href, ...rest }: ActiveLinkProps) => {
   const pathname = usePathname()
   const isCurrentPath =
     pathname === linkPath || pathname?.startsWith(`${linkPath}/`)
-  console.log({ pathname, linkPath })
+
   return (
     <Link
       {...rest}
