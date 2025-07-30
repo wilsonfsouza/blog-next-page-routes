@@ -7,11 +7,10 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
-import { Button } from '@/components/ui/button'
-import { useShareToSocials } from '@/hooks'
 import { Post } from 'contentlayer/generated'
 import Image from 'next/image'
 import Link from 'next/link'
+import { PostShare } from './components/post-share'
 
 export type BlogPostProps = {
   post: Post
@@ -20,12 +19,6 @@ export type BlogPostProps = {
 export function BlogPost({ post }: BlogPostProps) {
   const publisedDate = new Date(post.date).toLocaleDateString('en-US')
   const postUrl = `http://localhost:300/blog/${post.slug}`
-
-  const { shareButtons } = useShareToSocials({
-    url: postUrl,
-    title: post.title,
-    text: post.description,
-  })
 
   return (
     <section className="text-gray-100">
@@ -81,29 +74,12 @@ export function BlogPost({ post }: BlogPostProps) {
               <Markdown content={post.body.raw} />
             </div>
           </article>
-          <aside>
-            <div className="space-y-5 bg-gray-700">
-              <h2 className="hidden text-heading-xs text-gray-100 lg:block">
-                Share
-              </h2>
 
-              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:flex md:flex-wrap md:justify-end lg:justify-start">
-                {shareButtons.map((provider) => (
-                  <Button
-                    key={provider.provider}
-                    variant="outline"
-                    className="lg:w-full lg:justify-start lg:gap-2"
-                    onClick={() => provider.action()}
-                  >
-                    {provider.icon}
-                    <span className="hidden lg:inline-block">
-                      {provider.name}
-                    </span>
-                  </Button>
-                ))}
-              </div>
-            </div>
-          </aside>
+          <PostShare
+            url={postUrl}
+            title={post?.title}
+            description={post?.description}
+          />
         </div>
       </div>
     </section>
