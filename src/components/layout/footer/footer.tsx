@@ -12,6 +12,7 @@ export const Footer = () => {
           </span>
         </div>
       </div>
+      <div className="bg-gradient-sitedot h-1 w-full"></div>
     </footer>
   )
 }
