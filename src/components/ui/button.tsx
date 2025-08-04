@@ -15,6 +15,8 @@ const buttonVariants = cva(
           'bg-gray-100 text-gray-800 transition-colors duration-200 hover:bg-blue-100 rounded-full',
         outline:
           'border border-gray-400 bg-gray-700 transition-colors duration-200 hover:text-blue-200 hover:border-blue-200',
+        ghost:
+          'bg-gray-400 text-gray-100 transition-colors duration-200 hover:text-blue-200',
       },
       size: {
         md: 'h-9 px-4',
