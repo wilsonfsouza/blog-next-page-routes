@@ -41,12 +41,13 @@ export function BlogPost({ post }: BlogPostProps) {
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_14rem] lg:gap-6">
           <article className="overflow-hidden rounded-xl border border-gray-400 bg-gray-600">
-            <figure className="relative aspect-[16/10] w-full overflow-hidden">
+            <figure className="relative aspect-[16/10] w-full overflow-hidden md:max-h-[16.5rem]">
               <Image
                 src={post.image.src}
                 alt={post.image.alt}
                 fill
-                className="object-cover"
+                className="object-cover object-top"
+                fetchPriority="high"
               />
             </figure>
 
