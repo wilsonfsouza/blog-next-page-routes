@@ -10,7 +10,7 @@
 
 ## 💻 About the project
 
-This is a modern, responsive blog platform built with Next.js, designed to provide a seamless reading and content management experience. The project uses Contentlayer to manage Markdown-based blog posts and features a clean, minimalist design with Tailwind CSS.
+This is a modern, responsive blog platform built with Next.js, designed to convert visitors and showcase content effectively. The blog is powered by Contentlayer, which uses Markdown files for easy content management, and all pages are statically generated for maximum performance and SEO benefits. This project is a perfect starting point for any affiliate marketing venture.
 
 ## ✨ Features
 
