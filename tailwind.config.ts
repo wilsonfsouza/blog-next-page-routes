@@ -77,6 +77,13 @@ export default {
         'action-md': ['16px', { lineHeight: 'normal', fontWeight: '500' }],
         'action-sm': ['14px', { lineHeight: 'normal', fontWeight: '500' }],
       },
+      backgroundImage: {
+        'gradient-sitedot': `linear-gradient(
+            95.99deg,
+            rgba(34, 144, 156, 0.7) 7.66%,
+            rgba(36, 99, 183, 0.7) 98.16%
+          )`,
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],
