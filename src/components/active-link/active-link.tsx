@@ -20,7 +20,7 @@ export const ActiveLink = ({ children, href, ...rest }: ActiveLinkProps) => {
       {...rest}
       href={href}
       className={cn(
-        'text-action-sm transition-colors hover:text-blue-200',
+        'w-full border-b border-white/10 px-5 py-6 text-action-sm transition-colors hover:text-blue-200 md:w-fit md:border-none md:p-0',
         isCurrentPath ? 'text-blue-200' : 'text-gray-100'
       )}
     >
