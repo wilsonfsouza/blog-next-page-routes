@@ -28,7 +28,7 @@ export const Header = () => {
     <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 fixed top-0 z-50 w-full border-b border-white/10 backdrop-blur">
       <div className="container">
         <div className="flex h-16 items-center justify-between">
-          <Logo usesAltLogoOnMobile />
+          <Logo usesAltLogoOnMobile fetchPriority="high" />
 
           <nav className="hidden items-center gap-6 md:flex">
             {menuItems.map((link) => (
@@ -38,14 +38,14 @@ export const Header = () => {
             ))}
 
             <Button size="md" variant="secondary" asChild>
-              <Link href="/contact-us">Contact Us</Link>
+              <Link href="/create-store">Start Today</Link>
             </Button>
           </nav>
 
           <MobileNavigationContainer>
             <nav className="flex items-center gap-2 md:hidden">
               <Button size="md" variant="secondary" asChild>
-                <Link href="/contact-us">Contact Us</Link>
+                <Link href="/create-store">Start Today</Link>
               </Button>
               <SheetTrigger asChild>
                 <Button
