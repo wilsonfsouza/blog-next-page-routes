@@ -54,6 +54,9 @@ export const HeroSection = () => {
           width={200}
           height={400}
           className="h-full w-auto object-contain"
+          priority
+          fetchPriority="high"
+          loading="eager"
         />
       </div>
     </section>

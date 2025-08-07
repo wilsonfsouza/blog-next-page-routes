@@ -19,7 +19,12 @@ export const DesktopNavigation = () => {
     <nav className="hidden w-full items-center md:flex">
       <ul className="flex w-full items-center justify-between">
         <li>
-          <Logo className="hidden md:block" priority />
+          <Logo
+            className="hidden md:block"
+            priority
+            fetchPriority="high"
+            loading="eager"
+          />
         </li>
 
         <li>

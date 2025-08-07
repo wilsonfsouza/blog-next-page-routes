@@ -14,7 +14,13 @@ export const MobileNavigation = () => {
     <nav className="flex w-full items-center md:hidden">
       <ul className="flex w-full items-center justify-between">
         <li>
-          <Logo className="block md:hidden" type="icon-only" priority />
+          <Logo
+            className="block md:hidden"
+            type="icon-only"
+            priority
+            fetchPriority="high"
+            loading="eager"
+          />
         </li>
 
         <li>
