@@ -1,32 +1,23 @@
-'use client'
+"use client";
 
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
 export function useMediaQuery(query: string) {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const handleSetIsOpen = useCallback((open: boolean) => {
-    setIsOpen(open)
-  }, [])
+  const [value, setValue] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(min-width: 768px)')
-
-    const handleMediaQueryChange = (e: MediaQueryListEvent) => {
-      if (e.matches) {
-        handleSetIsOpen(false) // Close the sheet if the media query matches (e.g., on larger screens)
-      }
+    function onChange(event: MediaQueryListEvent) {
+      setValue(event.matches);
     }
 
-    mediaQuery.addEventListener('change', handleMediaQueryChange)
+    const result = window.matchMedia(query);
+    result.addEventListener("change", onChange);
+    setValue(result.matches);
 
     return () => {
-      mediaQuery.removeEventListener('change', handleMediaQueryChange)
-    }
-  }, [handleSetIsOpen])
+      result.removeEventListener("change", onChange);
+    };
+  }, [query]);
 
-  return {
-    isOpen,
-    handleSetIsOpen,
-  }
+  return value;
 }
