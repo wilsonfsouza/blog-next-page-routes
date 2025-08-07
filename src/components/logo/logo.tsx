@@ -1,34 +1,36 @@
-import { cn } from '@/lib/utils'
 import Image, { ImageProps } from 'next/image'
 import Link from 'next/link'
 
-interface LogoProps {
-  usesAltLogoOnMobile?: boolean
-  fetchPriority?: ImageProps['fetchPriority']
+type LogoType = 'icon-only' | 'full'
+type OmittedImageProps = 'src' | 'alt' | 'width' | 'height'
+
+interface LogoProps extends Omit<ImageProps, OmittedImageProps> {
+  type?: LogoType
 }
 
-export const Logo = ({
-  usesAltLogoOnMobile = false,
-  fetchPriority,
-}: LogoProps) => {
+export const Logo = ({ type = 'full', ...rest }: LogoProps) => {
+  if (type === 'full') {
+    return (
+      <Link href="/" title="Homepage">
+        <Image
+          {...rest}
+          src="/logo.svg"
+          alt="Full Logo"
+          width={84}
+          height={32}
+        />
+      </Link>
+    )
+  }
+
   return (
     <Link href="/" title="Homepage">
       <Image
-        src="/logo.svg"
-        alt="Desktop Logo"
-        width={84}
-        height={32}
-        className={cn('', usesAltLogoOnMobile ? 'hidden md:block' : 'block')}
-        {...(fetchPriority && { fetchPriority })}
-      />
-
-      <Image
+        {...rest}
         src="/mobile-logo.svg"
-        alt="Mobile Logo"
+        alt="Icon Logo"
         width={40}
         height={40}
-        className={cn('', usesAltLogoOnMobile ? 'block md:hidden' : 'hidden')}
-        {...(fetchPriority && { fetchPriority })}
       />
     </Link>
   )
