@@ -18,6 +18,9 @@ export default {
     },
 
     extend: {
+      screens: {
+        '4xl': '1600px',
+      },
       colors: {
         white: '#FFFFFF',
         blue: {
