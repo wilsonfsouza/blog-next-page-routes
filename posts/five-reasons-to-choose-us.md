@@ -23,5 +23,3 @@ This is what our platform offers:
 - **Specialized Support**: our support team is ready and always available to help answering your questions and overcoming technical challenges.
 
 Are you ready to place your products in the world? With us, creating your online store is fast, simple, and accessible. From the configuration to finalizing a purchase, we offer all the necessary tools for you to sell your products successfully.
-
-continue at -10:20
